@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -18,10 +17,10 @@ using WPFGitHubExplorer.Models;
 
 namespace WPFGitHubExplorer.ViewModels
 {
-    public class GitHubRepositoriesVM : INotifyPropertyChanged
+    public class GitHubUsersVM : INotifyPropertyChanged
     {
         private const string URLDefault = "https://api.github.com";
-        private string URLSearchDefault = $"search/repositories?";
+        private string URLSearchDefault = $"search/users?";
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         public void Notify([CallerMemberName] string propertyName = null)
@@ -33,16 +32,16 @@ namespace WPFGitHubExplorer.ViewModels
         }
         #endregion
 
-        private List<GitHubRepository> _Repositories;
-        public List<GitHubRepository> Repositories
+        private List<GitHubRepositoryUser> _Users;
+        public List<GitHubRepositoryUser> Users
         {
             get
             {
-                return _Repositories;
+                return _Users;
             }
             set
             {
-                _Repositories = value;
+                _Users = value;
                 Notify();
             }
         }
@@ -91,7 +90,7 @@ namespace WPFGitHubExplorer.ViewModels
             }
         }
 
-        private string _Search;
+        private string _Search = "nilbersilva";
         public string Search
         {
             get
@@ -108,13 +107,13 @@ namespace WPFGitHubExplorer.ViewModels
         public ICommand CommandSearch { get; }
         public ICommand CommandChangeItemsPerPage { get; }
 
-        public GitHubRepositoriesVM()
+        public GitHubUsersVM()
         {
             CommandSearch = new Command(async (x) =>
-             {
-                 if (IsBusy) return;
-                 await LoadData();
-             });
+            {
+                if (IsBusy) return;
+                await LoadData();
+            });
             CommandChangeItemsPerPage = new Command(async (x) =>
             {
                 ItemsPerPage = int.Parse(x.ToString());
@@ -130,7 +129,7 @@ namespace WPFGitHubExplorer.ViewModels
                 string sURLSearch = $"{URLSearchDefault}q=";
                 if (!string.IsNullOrWhiteSpace(Search))
                 {
-                    sURLSearch += $"{Uri.EscapeDataString(Search)}";                                             
+                    sURLSearch += $"{Uri.EscapeDataString(Search)}";
                 }
                 else
                 {
@@ -158,9 +157,9 @@ namespace WPFGitHubExplorer.ViewModels
                             using (var stream = await resp.Content.ReadAsStreamAsync())
                             using (StreamReader sr = new StreamReader(stream))
                             {
-                                var repositorySearch = await System.Text.Json.JsonSerializer.DeserializeAsync<GitHubRepositoriesSearch>(stream);
-                                TotalCount = (long)Math.Round(repositorySearch.total_count / (decimal)ItemsPerPage);
-                                Repositories = repositorySearch.items;
+                                var usersSearch = await System.Text.Json.JsonSerializer.DeserializeAsync<GitHubUsersSearch>(stream);
+                                TotalCount = (long)Math.Round(usersSearch.total_count / (decimal)ItemsPerPage);
+                                Users = usersSearch.items;
 
                             }
                         }

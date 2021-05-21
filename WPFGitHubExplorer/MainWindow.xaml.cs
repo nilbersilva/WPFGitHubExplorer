@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dragablz;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,27 +21,11 @@ namespace WPFGitHubExplorer
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
-        public GitHubRepositoriesVM MyVM = new GitHubRepositoriesVM();
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = MyVM;
-        }
-
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            await MyVM.LoadData();
-        }
-
-        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.Key== Key.Enter)
-            {
-                e.Handled = true;
-                MyVM.CommandSearch.Execute(null);
-            }
         }
     }
 }

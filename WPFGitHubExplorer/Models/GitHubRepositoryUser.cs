@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace WPFGitHubExplorer.Models
 {
-    public class GitHubRepository
+    public class GitHubRepositoryUser
     {
+        public string login { get; set; }
         public long id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-
-        public GitHubRepositoryUser owner { get; set; }
+        public string avatar_url { get; set; }
+        public string html_url { get; set; }
     }
 }

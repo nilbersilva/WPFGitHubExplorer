@@ -11,7 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dragablz" Version="0.0.3.223" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.5" />
     <PackageReference Include="MaterialDesignThemes" Version="4.0.0" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.6" />
   </ItemGroup>
 
   <ItemGroup>
