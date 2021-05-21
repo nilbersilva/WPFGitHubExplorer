@@ -10,11 +10,18 @@ The following tools were used in this project:
 - [Windows Presentation Foundation - WPF](https://docs.microsoft.com/en-us/visualstudio/designers/getting-started-with-wpf?view=vs-2019)
 - [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
 - [MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
+- [MahApps](https://mahapps.com)
+- [Dragablz](https://dragablz.net)
 
 ## Screenshots
 
 <div align="center"> 
-  <img src="./GitAssets/MainWindow.jpg" />
+  <h3>Search Repositories</h3>
+  <img src="./GitAssets/Repositories.jpg" />
+</div>
+<div align="center"> 
+  <h3>Search Users</h3>
+  <img src="./GitAssets/Users.jpg" />
 </div>
 
 ## Starting
