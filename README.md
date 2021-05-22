@@ -24,7 +24,7 @@ The following tools were used in this project:
   <img src="./GitAssets/Users.jpg" width="512" />
 </div>
 <div align="center"> 
-  <h3>Search Users</h3>
+  <h3>User Detail</h3>
   <img src="./GitAssets/UserDetails.jpg" width="512" />
 </div>
 
