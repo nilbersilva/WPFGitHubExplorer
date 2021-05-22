@@ -28,6 +28,11 @@ The following tools were used in this project:
   <img src="./GitAssets/UserDetails.jpg" width="512" />
 </div>
 
+## Requirements
+
+- [Visual Studio](https://visualstudio.microsoft.com)
+- [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
+
 ## Starting
 
 ```bash
