@@ -1,0 +1,50 @@
+﻿<mah:CustomDialog x:Class="WPFGitHubExplorer.Views.GitHubUserDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Background="Transparent"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes" MinHeight="300" MinWidth="500"
+             d:DesignHeight="450" d:DesignWidth="800" KeyDown="CustomDialog_KeyDown" 
+             Loaded="CustomDialog_Loaded"
+             PreviewMouseLeftButtonDown="CustomDialog_PreviewMouseLeftButtonDown">
+    <Grid x:Name="MainContainer" Background="Transparent" Panel.ZIndex="1">
+        <wpf:Card Margin="8" Width="Auto" Height="Auto" DataContext="{Binding User}">
+            <Grid Margin="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Ellipse Grid.RowSpan="2" Width="128" Height="128" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding avatar_url}" Stretch="Uniform"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <DockPanel Grid.Column="1" Margin="16,0,8,0">
+                    <TextBox DockPanel.Dock="Top"  Grid.Column="1"  Text="{Binding name}" wpf:HintAssist.Hint="Name" wpf:HintAssist.IsFloating="True" Margin="0,0,0,8" IsReadOnly="True"/>
+                    <TextBox DockPanel.Dock="Top" Grid.Column="1"  Text="{Binding login}" wpf:HintAssist.Hint="Login Name" wpf:HintAssist.IsFloating="True" Margin="0,0,0,8" IsReadOnly="True"/>
+                    <TextBox DockPanel.Dock="Top" Grid.Column="1"  Text="{Binding company}" wpf:HintAssist.Hint="Company" wpf:HintAssist.IsFloating="True" Margin="0,0,0,8" IsReadOnly="True"/>
+                    <TextBox DockPanel.Dock="Top" Grid.Column="1"  Text="{Binding location}" wpf:HintAssist.Hint="Location" wpf:HintAssist.IsFloating="True" Margin="0,0,0,8" IsReadOnly="True"/>
+                    <TextBox DockPanel.Dock="Bottom" Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,8" IsReadOnly="True"
+                             Text="{Binding bio}" wpf:HintAssist.Hint="Bio" wpf:HintAssist.IsFloating="True"/>
+                </DockPanel>
+
+                <Button Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="2"
+                        Click="CloseDialog"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                        Padding="0" Width="30" Height="30">
+                    X
+                </Button>
+            </Grid>
+        </wpf:Card>
+        <ProgressBar IsIndeterminate="{Binding IsBusy}" IsHitTestVisible="False" 
+                     Width="100" Height="100"
+                     Style="{StaticResource MaterialDesignCircularProgressBar}"/>
+    </Grid>
+</mah:CustomDialog>

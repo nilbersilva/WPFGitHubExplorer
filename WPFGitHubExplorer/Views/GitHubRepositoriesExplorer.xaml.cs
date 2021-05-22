@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,15 @@ namespace WPFGitHubExplorer.Views
                 FirstLoad = false;
                 MyVM.CommandSearch.Execute(null);
             }
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            ProcessStartInfo psInfo = new ProcessStartInfo(e.Uri.ToString())
+            {
+                UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(psInfo);
         }
     }
 }

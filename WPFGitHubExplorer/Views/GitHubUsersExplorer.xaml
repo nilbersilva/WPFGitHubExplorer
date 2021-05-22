@@ -40,7 +40,7 @@
             </RadioButton>
         </StackPanel>
         <ScrollViewer Grid.Row="2" Margin="8,8,8,0">
-            <ItemsControl  ItemsSource="{Binding Users}">
+            <ItemsControl  ItemsSource="{Binding Users}" x:Name="ItemsContainer">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel/>
@@ -55,10 +55,11 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition />
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Ellipse Grid.RowSpan="2" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Ellipse Grid.RowSpan="3" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <Ellipse.Fill>
                                         <ImageBrush ImageSource="{Binding avatar_url}" Stretch="Uniform"
                                                     />
@@ -74,7 +75,14 @@
                                         <Run Text="{Binding html_url}"/>
                                     </Hyperlink>
                                 </TextBlock>
-                                
+
+                                <Button Grid.Row="2" Grid.Column="1" Margin="0,8,8,8" Style="{StaticResource MaterialDesignFlatAccentButton}" HorizontalAlignment="Left"
+                                        Command="{Binding ElementName=ItemsContainer,Path=DataContext.CommandUserDetails}" CommandParameter="{Binding login}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <wpf:PackIcon Kind="Details"/>
+                                        <TextBlock Margin="8,0" Text="Details"/>
+                                    </StackPanel>
+                                </Button>
                             </Grid>
                         </wpf:Card>
                     </DataTemplate>

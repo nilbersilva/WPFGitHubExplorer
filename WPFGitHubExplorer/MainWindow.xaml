@@ -13,6 +13,10 @@
         FontFamily="{DynamicResource MahApps.Fonts.Family.Window.Title}"
         GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
         Style="{StaticResource MaterialDesignWindow}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
         xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Window.Resources>
         <ResourceDictionary>
@@ -33,10 +37,10 @@
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController />
             </dragablz:TabablzControl.InterTabController>
-            <TabItem Header="Repositories Explorer">
+            <TabItem Header="Repositories Explorer" >
                 <Views:GitHubRepositoriesExplorer />
             </TabItem>
-            <TabItem Header="Users Explorer"  >
+            <TabItem Header="Users Explorer"  IsSelected="True">
                 <Views:GitHubUsersExplorer />
             </TabItem>
         </dragablz:TabablzControl>
