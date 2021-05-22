@@ -17,11 +17,15 @@ The following tools were used in this project:
 
 <div align="center"> 
   <h3>Search Repositories</h3>
-  <img src="./GitAssets/Repositories.jpg" />
+  <img src="./GitAssets/Repositories.jpg" width="512" />
 </div>
 <div align="center"> 
   <h3>Search Users</h3>
-  <img src="./GitAssets/Users.jpg" />
+  <img src="./GitAssets/Users.jpg" width="512" />
+</div>
+<div align="center"> 
+  <h3>Search Users</h3>
+  <img src="./GitAssets/UserDetails.jpg" width="512" />
 </div>
 
 ## Starting
