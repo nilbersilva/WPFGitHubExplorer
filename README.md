@@ -1,7 +1,7 @@
 # WPFGitHubExplorer
 
 ## About
-WPF .NET Core 5.0 - Search GitHub Repositories
+WPF .NET Core 5.0 - Search GitHub Repositories and Users
 
 ## Technologies
 
